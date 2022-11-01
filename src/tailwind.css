@@ -628,11 +628,6 @@ video {
   gap: 0.5rem;
 }
 
-.bg-gray-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
-}
-
 .pt-12 {
   padding-top: 3rem;
 }
@@ -649,3 +644,4 @@ video {
 .font-bold {
   font-weight: 700;
 }
+
