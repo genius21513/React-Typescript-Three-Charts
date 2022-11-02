@@ -1,23 +1,31 @@
 import React from 'react';
-import { Doughnut } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
+
 var dataJson = require('../api/data.json');
 
-function PieCt() {
-  const l = dataJson.names.reverse();  
+function HisCt() {
+  const l = dataJson.names;
 
   const d = () => {
-    let ar : Array<number> = dataJson.unique_holders.reverse();
-    let s = ar.reduce((a, b) => a + b);
-    let ra : Array<number> =  ar.map((v, i) => Number.parseFloat((v * 100 / s).toFixed(1)));
+    let ra : Array<number> = dataJson.distribution;
     return ra;
   }
 
-  const options : any = {  
-    layout: {
-      padding: 2
-    },    
-    cutout: '70%',
-    radius: '100%',
+  const options : any = {
+    scales: {
+      x: {        
+        grid: {
+          drawBorder: false,
+          display: false,
+        }
+      },
+      y: {        
+        grid: {
+          drawBorder: false,
+          display: false
+        }
+      },
+    },
     plugins: {
       legend: {
         display: false,
@@ -29,11 +37,12 @@ function PieCt() {
         // display: false,
         color: "white",
         font: {
-          size: '10',  
+          size: 12,
         }
       },
       tooltip: {
         callbacks: {
+          title: function() {},
           label: (context : any) => {
             return context.label + ' : ' + context.formattedValue + '%';
           }
@@ -43,29 +52,29 @@ function PieCt() {
     // borderColor: '#ffffff',
     borderWidth: 0,
     hoverOffset: 5,
-    offset: 2,    
+    offset: 2,
   };
-  
+
   const data = {
     labels: l,
     datasets: [
       {
+        axis: 'y',
+        // label: 'Data',
         data: d(),
         backgroundColor: [
           '#129CFF',
           '#0C6DB3',
           '#FF6384',
           '#00FFFF',
-        ],      
-      },
-    ],
+        ],
+      },    
+    ]
   };
 
   return (
-    <>
-      <Doughnut data={data} options={options} />
-    </>
+    <Bar data={data} options={options} />
   );
 }
 
-export default PieCt;
+export default HisCt;
