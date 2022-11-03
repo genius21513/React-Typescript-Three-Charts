@@ -30,7 +30,7 @@ function PieCt() {
         display: true,
         color: "white",
         font: {
-          size: '10',  
+          size: 14,
         }
       },
       tooltip: {
@@ -43,7 +43,7 @@ function PieCt() {
     },
     borderWidth: 0,
     hoverOffset: 5,
-    offset: 2,    
+    offset: 2, 
   };
   
   const data = {

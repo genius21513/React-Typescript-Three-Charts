@@ -36,7 +36,7 @@ function HBarCt() {
         display: true,
         color: "white",
         font: {
-          size: 12,
+          size: 15,
         }
       },
       tooltip: {

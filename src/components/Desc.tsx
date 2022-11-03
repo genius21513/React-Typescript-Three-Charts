@@ -13,7 +13,7 @@ export const TopDesc = () => {
 export const ChartDesc = ({ desc }: { desc?: string }) => {
     return (
         <>
-            <h3 className='mt-2 p-2 font-bold text-white border-t border-cyan-700 text-center'>Unique Holder Wallets</h3>
+            <h3 className='mt-2 p-2 font-bold text-lg hover:text-gray-600 text-white border-t border-cyan-700 text-center'>Unique Holder Wallets</h3>
         </>
     );
 }

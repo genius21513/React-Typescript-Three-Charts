@@ -19,7 +19,7 @@ function App() {
     <>
       {        
         (typeof registerables !== 'undefined') && 
-        <div className="App font-mono min-h-screen bg-slate-800 flex">
+        <div className="App font-mono min-h-screen flex bg-gradient-to-r from-slate-800 to-slate-700">
           <div className='container mx-auto flex flex-col justify-center'>
             <TopDesc />
             <div className='flex flex-col md:flex-row'>
