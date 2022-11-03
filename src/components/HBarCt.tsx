@@ -1,42 +1,23 @@
-import React from 'react';
 import { Bar } from 'react-chartjs-2';
-
-// import type { ChartData, ChartOptions } from 'chart.js';
-
-// interface BarProps {
-//   options: ChartOptions<'bar'>;
-//   data: ChartData<'bar'>;
-// }
-
-var dataJson = require('../api/data.json');
-
+import dataJson from '../api/data.json';
 
 function HBarCt() {
   const l = dataJson.names;
 
   const d = () => {
-    let ra : Array<number> = dataJson.unique_holders;
+    const ra : Array<number> = dataJson.unique_holders;
     return ra;
   }
 
-  const options : any = {
-    // layout: {
-    //   padding: 2
-    // },
+  const options : any = {    
     scales: {
-      x: {       
-        // ticks: {
-        //   display: false,
-        // },
+      x: {        
         grid: {
-          drawBorder: false,
-          display: false,
-        }
+          color: '#64748b',
+          borderColor: "#e2e8f0",
+        }        
       },
-      y: {
-        // ticks: {
-        //   display: false,
-        // },
+      y: {        
         grid: {
           drawBorder: false,
           display: false
@@ -44,15 +25,6 @@ function HBarCt() {
       },
     },
     indexAxis: 'y',
-    // animations: {
-    //   startAngle: {
-    //     from: Math.PI * 2,
-    //   },
-    //   endAngle: {
-    //     from: Math.PI * 2,
-    //   }
-    // },
-    
     plugins: {
       legend: {
         display: false,
@@ -61,7 +33,7 @@ function HBarCt() {
         formatter: function (v : number, c : any) {        
           return v;
         },
-        // display: false,
+        display: true,
         color: "white",
         font: {
           size: 12,
@@ -76,7 +48,6 @@ function HBarCt() {
         }
       }
     },
-    // borderColor: '#ffffff',
     borderWidth: 0,
     hoverOffset: 5,
     offset: 2,
@@ -88,20 +59,22 @@ function HBarCt() {
     datasets: [
       {
         axis: 'y',
-        // label: 'Data',
+        label: 'Horizontal Bar',
         data: d(),
         backgroundColor: [
-          '#129CFF',
-          '#0C6DB3',
-          '#FF6384',
-          '#00FFFF',
+          "#0284c7",
+          "#0369a1",
+          "#075985",
+          "#0c4a6e",
         ],
-      },    
+      },
     ]
   };
 
   return (
-    <Bar data={data} options={options} />
+    <>
+      <Bar data={data} options={options} />      
+    </>
   );
 }
 

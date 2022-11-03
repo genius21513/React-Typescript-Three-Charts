@@ -7,32 +7,38 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import PieCt from './components/PieCt';
 import HBarCt from './components/HBarCt';
 import HisCt from './components/HisCt';
+import { ChartDesc, TopDesc } from './components/Desc';
+import { ChartCard } from './components/ChartCard';
 
-var dataJson = require('./api/data.json');
-
-Chart.register(...registerables, ChartDataLabels);
 
 function App() {
+  React.useEffect(() => {
+    if (typeof registerables === 'undefined') return;
+    Chart.register(...registerables, ChartDataLabels);
+  }, []);
+
   return (
-    <div className="App min-h-screen overflow-hidden">
-      <div className='container mx-auto py-24 px-2'>
-        <div>
-          <h1 className='my-auto text-7xl sm:text-6xl md:text-5xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200'>Three Charts</h1>
-          
-        </div>
-        <div className='md:flex flex-column gap-5 items-center mt-12 shadow-md hover:shadow-lg bg-gray-800 rounded-lg py-6'>
-          <div className='md:w-2/5 sm:w-full p-2'>
-            <HBarCt />
-          </div>
-          <div className="md:w-1/5 w-1/2 p-2 mx-auto">
-            <PieCt />
-          </div>
-          <div className='md:w-2/5 sm:w-full p-2'>
-            <HisCt />
+    <>
+      <div className="App font-mono min-h-screen bg-slate-800 flex">
+        <div className='container mx-auto flex flex-col justify-center'>
+          <TopDesc />
+          <div className='flex flex-col md:flex-row'>
+            <ChartCard className='md:w-1/5'>
+              <PieCt />
+              <ChartDesc desc="Unique Holder Wallets" />
+            </ChartCard>
+            <ChartCard className='md:w-2/5'>
+              <HBarCt />
+              <ChartDesc desc="Unique Holders"/>
+            </ChartCard>          
+            <ChartCard className='md:w-2/5'>
+              <HisCt />            
+              <ChartDesc desc="Holder Distribution"/>
+            </ChartCard>          
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

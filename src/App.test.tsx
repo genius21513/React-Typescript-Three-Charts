@@ -1,9 +1,11 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import { ChartDesc } from "./components/Desc";
+// import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('renders', () => {
+  render(<ChartDesc/>)  
+  // render(<App />);
+  // const linkElement = screen.getByText(/learn react/i);
+  // expect(linkElement).toBeInTheDocument();
 });

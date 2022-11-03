@@ -1,23 +1,24 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
-var dataJson = require('../api/data.json');
+import dataJson from '../api/data.json';
 
 function PieCt() {
   const l = dataJson.names.reverse();  
 
   const d = () => {
-    let ar : Array<number> = dataJson.unique_holders.reverse();
-    let s = ar.reduce((a, b) => a + b);
-    let ra : Array<number> =  ar.map((v, i) => Number.parseFloat((v * 100 / s).toFixed(1)));
+    const ar : Array<number> = dataJson.unique_holders.reverse();
+    const s = ar.reduce((a, b) => a + b);
+    const ra : Array<number> =  ar.map((v, i) => Number.parseFloat((v * 100 / s).toFixed(1)));
     return ra;
   }
 
-  const options : any = {  
-    layout: {
-      padding: 2
-    },    
+  const c = () => {
+    return dataJson.color;
+  }
+
+  const options : any = {    
     cutout: '70%',
-    radius: '100%',
+    radius: '95%',
     plugins: {
       legend: {
         display: false,
@@ -26,7 +27,7 @@ function PieCt() {
         formatter: function (v : number, c : any) {        
           return v + '%';
         },
-        // display: false,
+        display: true,
         color: "white",
         font: {
           size: '10',  
@@ -40,7 +41,6 @@ function PieCt() {
         }
       }
     },
-    // borderColor: '#ffffff',
     borderWidth: 0,
     hoverOffset: 5,
     offset: 2,    
@@ -51,12 +51,7 @@ function PieCt() {
     datasets: [
       {
         data: d(),
-        backgroundColor: [
-          '#129CFF',
-          '#0C6DB3',
-          '#FF6384',
-          '#00FFFF',
-        ],      
+        backgroundColor: c()
       },
     ],
   };

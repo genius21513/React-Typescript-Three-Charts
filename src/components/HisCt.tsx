@@ -1,19 +1,19 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
 
-var dataJson = require('../api/data.json');
+import dataJson from '../api/data.json';
 
 function HisCt() {
   const l = dataJson.names;
 
   const d = () => {
-    let ra : Array<number> = dataJson.distribution;
+    const ra : Array<number> = dataJson.distribution;
     return ra;
   }
 
-  const options : any = {
+  const options : any = {    
     scales: {
-      x: {        
+      x: {
         grid: {
           drawBorder: false,
           display: false,
@@ -21,8 +21,8 @@ function HisCt() {
       },
       y: {        
         grid: {
-          drawBorder: false,
-          display: false
+          color: '#64748b',
+          borderColor: "#e2e8f0",
         }
       },
     },
@@ -34,7 +34,7 @@ function HisCt() {
         formatter: function (v : number, c : any) {        
           return v + '%';
         },
-        // display: false,
+        display: true,
         color: "white",
         font: {
           size: 12,
@@ -49,7 +49,6 @@ function HisCt() {
         }
       }
     },
-    // borderColor: '#ffffff',
     borderWidth: 0,
     hoverOffset: 5,
     offset: 2,
@@ -60,20 +59,22 @@ function HisCt() {
     datasets: [
       {
         axis: 'y',
-        // label: 'Data',
+        label: 'Histogram',
         data: d(),
         backgroundColor: [
-          '#129CFF',
-          '#0C6DB3',
-          '#FF6384',
-          '#00FFFF',
+          "#0284c7",
+          "#0369a1",
+          "#075985",
+          "#0c4a6e",
         ],
       },    
     ]
   };
 
   return (
-    <Bar data={data} options={options} />
+    <>
+      <Bar data={data} options={options} />      
+    </>
   );
 }
 
