@@ -36,7 +36,7 @@ function HBarCt() {
         display: true,
         color: "white",
         font: {
-          size: 15,
+          size: 12,
         }
       },
       tooltip: {
@@ -62,10 +62,10 @@ function HBarCt() {
         label: 'Horizontal Bar',
         data: d(),
         backgroundColor: [
-          "#0284c7",
-          "#0369a1",
-          "#075985",
-          "#0c4a6e",
+          "#0284c7dd",
+          "#0369a1dd",
+          "#075985dd",
+          "#0c4a6edd",
         ],
       },
     ]

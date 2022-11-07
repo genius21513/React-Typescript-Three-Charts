@@ -1,6 +1,6 @@
 {
     "names" :  ["Edition 1", "Edition 2", "Edition 3", "Edition 4"],
-    "unique_holders" : [448, 689, 917, 5240],
+    "unique_holders" : [448, 689, 917, 5239],
     "distribution" : [89.6, 91.9, 91.7, 69.9],
     "color": ["#0284c7", "#0369a1", "#075985", "#0c4a6e"]
 }

@@ -3,10 +3,10 @@ import { Doughnut } from 'react-chartjs-2';
 import dataJson from '../api/data.json';
 
 function PieCt() {
-  const l = dataJson.names.reverse();  
+  const l = dataJson.names;
 
   const d = () => {
-    const ar : Array<number> = dataJson.unique_holders.reverse();
+    const ar : Array<number> = dataJson.unique_holders;
     const s = ar.reduce((a, b) => a + b);
     const ra : Array<number> =  ar.map((v, i) => Number.parseFloat((v * 100 / s).toFixed(1)));
     return ra;
@@ -30,7 +30,7 @@ function PieCt() {
         display: true,
         color: "white",
         font: {
-          size: 14,
+          size: 12,
         }
       },
       tooltip: {

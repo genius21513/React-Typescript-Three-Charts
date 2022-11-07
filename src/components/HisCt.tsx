@@ -12,6 +12,7 @@ function HisCt() {
   }
 
   const options : any = {    
+    responsive: true,    
     scales: {
       x: {
         grid: {
@@ -22,7 +23,10 @@ function HisCt() {
       y: {        
         grid: {
           color: '#64748b',
-          borderColor: "#e2e8f0",
+          borderColor: "#e2e8f0",          
+        },
+        ticks: {
+          count: 6,
         }
       },
     },
@@ -37,7 +41,7 @@ function HisCt() {
         display: true,
         color: "white",
         font: {
-          size: 15,
+          size: 12,
         }
       },
       tooltip: {
@@ -62,10 +66,10 @@ function HisCt() {
         label: 'Histogram',
         data: d(),
         backgroundColor: [
-          "#0284c7",
-          "#0369a1",
-          "#075985",
-          "#0c4a6e",
+          "#0284c7dd",
+          "#0369a1dd",
+          "#075985dd",
+          "#0c4a6edd",
         ],
       },    
     ]
